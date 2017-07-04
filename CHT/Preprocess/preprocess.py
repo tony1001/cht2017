@@ -1,4 +1,4 @@
-from rtree import index
+#from rtree import index
 import numpy
 import math
 
@@ -72,8 +72,8 @@ def collect_cell_tower(all_user_data,output_file):
     f.close()
 
 def HSR_reference_system(cell_file,stations,save=True):
-    cell_f = open("%s"%(cell_file),"r")
-	cell_data = [ [float(row.rstrip().split(",")[0]),float(row.rstrip().split(",")[1])] for row in cell_f]
+	cell_f = open("%s"%(cell_file),"r")
+	cell_data = [[float(row.rstrip().split(",")[0]),float(row.rstrip().split(",")[1])] for row in cell_f]
 	k = 3
 	HSR_ref_sys = {}
 	for s in stations.keys():
@@ -140,10 +140,6 @@ def MRT_reference_system(type,parameter,cell_file,entrance_file,output_file):
 	cell_f.close()
 	entrance_f.close()
 	output_f.close()
-
-	
-def HSR_reference_system():	
-	pass
 
 def preprocessing(user_raw_data):
 	#user_raw_data: [[user_imsi,unix_time,lon,lat]...]
